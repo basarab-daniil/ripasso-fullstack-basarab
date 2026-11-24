@@ -1,0 +1,13 @@
+@if (loading()) {
+  <p>Caricamento…</p>
+} @else if (errore()) {
+  <p>{{ errore() }}</p>
+} @else {
+  @for (g of giochi(); track g.id) {
+    <div class="card">
+      <h3>{{ g.nome }}</h3>
+      <p>{{ g.prezzo_scontato | currency:'EUR' }}</p>
+      <a [routerLink]="['/gioco', g.id]">Vedi dettaglio</a>
+    </div>
+  } @empty { <p>Nessun gioco</p> }
+}
