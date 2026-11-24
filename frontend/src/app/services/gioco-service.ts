@@ -12,6 +12,9 @@ export class GiocoService {
     return this.http.get<Gioco[]>(this.url);
   }
 
-  // getGioco(id) lo aggiungerai nella sezione 7,
-  // creaOrdine(...) nella sezione 8
+  getGioco(id: number): Observable<Gioco> {
+    return this.http.get<Gioco>(`${this.url}/${id}`);
+  }
+
+  // creaOrdine(...) lo aggiungerai nella sezione 8
 }

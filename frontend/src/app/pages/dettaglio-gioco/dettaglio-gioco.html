@@ -1,0 +1,10 @@
+@if (errore()) {
+  <p>{{ errore() }}</p>
+} @else if (gioco()) {
+  <h2>{{ gioco()!.nome }}</h2>
+  <p>Prezzo: {{ gioco()!.prezzo | currency:'EUR' }}</p>
+  <p>Prezzo scontato: {{ gioco()!.prezzo_scontato | currency:'EUR' }}</p>
+} @else {
+  <p>Caricamento…</p>
+}
+<a routerLink="/">← Torna ai giochi</a>
